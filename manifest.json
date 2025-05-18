@@ -1,0 +1,37 @@
+{
+  "name": "ISpy",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "description": "With my little AI",
+  "permissions": [
+    "cookies",
+    "clipboardWrite",
+    "tabs", 
+    "scripting",
+    "activeTab",
+    "storage"],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.pinterest.com/*"],
+      "js": ["firstpop.js", "content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/shade.png", "assets/opening.gif", "assets/loading.gif","assets/no.gif", "assets/yes.gif", "assets/wave.png"],
+
+      "matches": ["<all_urls>"]
+    }
+  ]
+  
+
+}
